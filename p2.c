@@ -68,6 +68,20 @@ void DupRem(int arr[],int size){
     printf("\n");
 }
 
+void insertionR(int arr[],int size){
+    for(int i=1;i<size;i++){
+        int key=arr[i];
+        int j=i-1;
+
+        while(j>=0 && arr[j]<key){
+            arr[j+1]=arr[j];
+            j=j-1;
+        }
+        arr[j+1]=key;
+    }
+
+}
+
 void insertion(int arr[],int size){
     for(int i=1;i<size;i++){
         int key=arr[i];
@@ -96,7 +110,11 @@ int main(){
     }
 
     display(array,SIZE);
+    
     insertion(array,SIZE);
+    display(array,SIZE);
+    
+    insertionR(array,SIZE);
     display(array,SIZE);
     //mergeSort(array,0,SIZE-1,SIZE);
     DupRem(array,SIZE);
