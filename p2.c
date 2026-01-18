@@ -47,7 +47,7 @@ void mergeSort(int arr[],int left, int right,int size){
 }
 
 void display(int arr[],int size){
-    printf("The values of the Array is :    ");
+    printf("The values of the Array is :");
     for(int i=0;i<size;i++){
         if(i>0&&i%10==0)
             printf("\n\t\t\t\t");
@@ -58,7 +58,7 @@ void display(int arr[],int size){
 }
 
 void DupRem(int arr[],int size){
-    printf("The values of the Array is : ");
+    printf("The values of the Array is :");
     for(int i=0;i<size;i++){
         if(i>0&&(arr[i-1]==arr[i]))
              continue;
@@ -66,6 +66,20 @@ void DupRem(int arr[],int size){
     }
 
     printf("\n");
+}
+
+void insertion(int arr[],int size){
+    for(int i=1;i<size;i++){
+        int key=arr[i];
+        int j=i-1;
+
+        while(j>=0 && arr[j]>key){
+            arr[j+1]=arr[j];
+            j=j-1;
+        }
+        arr[j+1]=key;
+    }
+
 }
 
 int main(){
@@ -82,7 +96,9 @@ int main(){
     }
 
     display(array,SIZE);
-    mergeSort(array,0,SIZE-1,SIZE);
+    insertion(array,SIZE);
+    display(array,SIZE);
+    //mergeSort(array,0,SIZE-1,SIZE);
     DupRem(array,SIZE);
 
     return 0;
